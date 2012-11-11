@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+
+    <form-beans>
+
+        <form-bean
+            name="testForm"
+            type="com.test.TestForm" >
+        </form-bean>
+    </form-beans>
+
+    <global-exceptions>
+    </global-exceptions>
+
+    <global-forwards>
+    </global-forwards>
+
+    <action-mappings>
+
+        <action
+            name="welcome"
+            path="/welcome.do" />
+
+        <action
+            path="/index"
+            type="com.test.Welcome" >
+            <forward
+                name="success"
+                path="/welcome.jsp" >
+            </forward>
+        </action>
+
+        <action
+            name="testForm"
+            input="input.jsp"
+            path="/test"
+            scope="request"
+            type="com.test.TestAction" >
+
+            <forward
+                name="success"
+                path="/success.jsp" >
+            </forward>
+
+            <forward
+                name="failure"
+                path="/error.jsp" >
+            </forward>
+        </action>
+    </action-mappings>
+
+    <message-resources parameter="MessageResources" />
+    <!--
+		<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		    <set-prpoerty property=""
+		</plug-in>
+    -->
+
+</struts-config>
